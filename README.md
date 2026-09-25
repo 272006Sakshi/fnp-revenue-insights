@@ -10,30 +10,26 @@ The project simulates a real analytics workflow:
 
 FNP wanted to understand its sales performance and customer behavior to sharpen its sales strategy and improve customer satisfaction. The analysis had to answer:
 
--  What is the overall revenue?
-- What is the average order-to-delivery time?
-- How does monthly sales performance fluctuate across 2023?
-- Which products are the top revenue generators?
-- How much are customers spending on average?
-- How do the top 5 products perform in terms of sales?
-- Which 10 cities place the highest number of orders?
-- Does a higher order quantity impact delivery time?
-- How does revenue compare across occasions?
-- Which products are most popular for specific occasions?
+- [x]  What is the overall revenue?
+- [x] What is the average order-to-delivery time?
+- [x] How does monthly sales performance fluctuate across 2023?
+- [x] Which products are the top revenue generators?
+- [x] How much are customers spending on average?
+- [x] How do the top 5 products perform in terms of sales?
+- [x] Which 10 cities place the highest number of orders?
+- [x] Does a higher order quantity impact delivery time?
+- [x] How does revenue compare across occasions?
+- [x] Which products are most popular for specific occasions?
 
-## 🗂️ Data Collection
+The raw data came as **three related tables**:
 
-The raw data came as three related tables:
+| Table | Description |
+|---|---|
+| **Orders** | Order ID, order date, delivery date, quantity, city (fact table) |
+| **Products** | Product ID, product name, category, price, occasion, description|
+| **Customers** | Customer ID, customer details |
 
-**Table	Description**
-
- **Orders:**	Order ID, order date, delivery date, quantity, occasion, city (fact table)
-
- **Products:**	Product ID, product name, category, price, Occasion
-
- **Customers:**	Customer ID, customer details
-
-**Price** was not directly available in the Orders table, so it had to be pulled in from the Products table before revenue could be calculated.
+Price was not directly available in the Orders table, so it had to be pulled in from the Products table before revenue could be calculated.
 
 ## 🛠️ Tools & Techniques Used
 
@@ -45,35 +41,32 @@ The raw data came as three related tables:
 - Slicers — interactive filtering (by Occasion, Order Date, Delivery Date)
 
 ## 🔧 Methodology
-**Step 1 - Extraction & Transformation (Power Query)**
+### Step 1 - Extraction & Transformation (Power Query)
 - Imported the Orders, Products, and Customers tables into Power Query.
 - Merged the Products table into Orders to bring in Price (since Orders only had Quantity).
 - Added new columns to the Orders table:
-  - Order_Time — time component extracted from the order timestamp
-  - Diff_Order_Delivery — number of days between order date and delivery date
-  - Order_Month — month extracted from the order date
+  - `Order_Time` — time component extracted from the order timestamp
+  - `Diff_Order_Delivery` — number of days between order date and delivery date
+  - `Order_Month` — month extracted from the order date
 - Loaded the cleaned tables into the Excel Data Model.
 
-**Step 2 - Data Modeling (Star Schema)**
-
-- Built a star schema in the Data Model:
-  - Fact table: Orders (transaction-level data)
-  - Dimension tables: Products, Customers
+### Step 2 - Data Modeling (Star Schema)
+Built a **star schema** in the Data Model:
+- **Fact table:** `Orders` (transaction-level data)
+- **Dimension tables:** `Products`, `Customers`
 
 This structure keeps the model normalized and makes the PivotTables fast and easy to slice by product or customer attributes.
 
-**Step 3 - DAX Calculated Columns**
-- Added two key calculated columns directly in the Data Model:
-  - Revenue = Price * Quantity
-  - Order_Day_Name = FORMAT(Order_Date, "DDDD")
+### Step 3 - DAX Calculated Columns
+Added two key calculated columns directly in the Data Model:
+- `Revenue = Price * Quantity`
+- `Order_Day_Name = FORMAT(Order_Date, "DDDD")`
 
-**Step 4 - Analysis (PivotTables)**
+### Step 4 - Analysis (PivotTables)
+Used PivotTables/PivotCharts built on the Data Model to answer each of the 10 business questions, with **Occasion**, **Order_Date**, and **Delivery_Date** slicers for interactive filtering.
 
-- Used **PivotTables/PivotCharts** built on the Data Model to answer each of the business questions, with Occasion, Order_Date, and Delivery_Date slicers for interactive filtering.
-
-**Step 5 - Dashboard Design**
-
-- Consolidated all the visuals into a single interactive Excel dashboard with **KPI cards, bar charts, a line/trend chart, and slicers.**
+### Step 5 - Dashboard Design
+Consolidated all the visuals into a single interactive Excel dashboard with KPI cards, bar charts, a line/trend chart, and slicers.
 
 ## 📊 Dashboard Preview
 *Main Dashboard*
