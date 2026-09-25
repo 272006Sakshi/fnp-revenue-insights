@@ -95,7 +95,7 @@ This structure keeps the model normalized and makes the PivotTables fast and eas
 - 🔗 The correlation between order quantity and delivery time is effectively zero (≈ -0.01) - larger orders are not causing delivery delays, so delivery time is likely driven by logistics/location rather than order size.
 
 ## 💡 Recommendations
-- Boost Diwali & Valentine's Day campaigns: these occasions currently underperform relative to their market potential; targeted promotions, bundled offers, or earlier marketing pushes could close the gap.
+- Boost Diwali & Valentine's Day campaigns: these occasions currently underperform relative to their market potential- targeted promotions, bundled offers, or earlier marketing pushes could close the gap.
 - Double down on Soft Toys and Sweets: expand catalog depth and cross-sell these categories during high-performing occasions like Anniversary and Raksha Bandhan.
 - Investigate the April/August revenue dip: plan mid-year promotional campaigns or festive-style offers to smooth out the seasonal trough.
 - Expand reach in emerging cities: since order volume is thinly spread across many tier-2/3 cities, localized delivery partnerships or regional marketing could convert this long tail into more concentrated demand.
