@@ -74,3 +74,12 @@ This structure keeps the model normalized and makes the PivotTables fast and eas
 **Step 5 - Dashboard Design**
 
 - Consolidated all the visuals into a single interactive Excel dashboard with **KPI cards, bar charts, a line/trend chart, and slicers.**
+
+## 📊 Dashboard Preview
+*Main Dashboard*
+
+![dashboard_overview](dashboard_overview.png)
+
+*Pivot Table Analysis*
+
+![pivot table](pivot_analysis.png)
